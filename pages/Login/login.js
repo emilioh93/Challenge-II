@@ -1,5 +1,6 @@
 const form = document.getElementById('form')
 const inputs = document.querySelectorAll('#form input')
+let user;
 
 const regex = {
     email: /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/,
@@ -11,10 +12,15 @@ const campos = {
     password: false,
 }
 
+const setUser = (e) => {
+    user = e;
+}
+
 const validateForm = e => {
     switch (e.target.name) {
         case 'email':
             validateInput(regex.email, e.target, 'email')
+            setUser(e.target.value)
             break
 
         case 'password':
@@ -45,11 +51,19 @@ inputs.forEach(input => {
 
 const login = () => {
     if (campos.email && campos.password) {
+        console.log("Entró")
         document.getElementById('alertMessage').classList.remove('alertMessage-active');
         form.reset();
         document.getElementById('emailContainer').classList.remove('success')
         document.getElementById('passwordContainer').classList.remove('success')
+        localStorage.setItem("user", user);
+        location.href = "../Principal/principal.html"
+
     } else {
         document.getElementById('alertMessage').classList.add('alertMessage-active');
     }
 }
+
+// TODO: Al cargar la página, revisar si el usuario está en el LS
+// Si lo está, redirigir a la página principal del usuario logueado
+// Si no lo está, mantener en Login
