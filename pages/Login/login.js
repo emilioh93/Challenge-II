@@ -2,8 +2,8 @@ const form = document.getElementById('form')
 const inputs = document.querySelectorAll('#form input')
 
 const regex = {
-    email: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-    password: /^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$/
+    email: /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/,
+    password: /^(?=.*?[A-Za-z])(?=.*?[0-9])(?=.*?[#%&*]).{0,8}$/
 }
 
 const campos = {
@@ -47,6 +47,8 @@ const login = () => {
     if (campos.email && campos.password) {
         document.getElementById('alertMessage').classList.remove('alertMessage-active');
         form.reset();
+        document.getElementById('emailContainer').classList.remove('success')
+        document.getElementById('passwordContainer').classList.remove('success')
     } else {
         document.getElementById('alertMessage').classList.add('alertMessage-active');
     }
