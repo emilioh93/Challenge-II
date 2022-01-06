@@ -49,9 +49,9 @@ inputs.forEach(input => {
     input.addEventListener('blur', validateForm)
 })
 
+/* ---- Función para loguearse ejecutada desde botón Login del formulario --- */
 const login = () => {
     if (campos.email && campos.password) {
-        console.log("Entró")
         document.getElementById('alertMessage').classList.remove('alertMessage-active');
         form.reset();
         document.getElementById('emailContainer').classList.remove('success')
@@ -64,6 +64,10 @@ const login = () => {
     }
 }
 
-// TODO: Al cargar la página, revisar si el usuario está en el LS
-// Si lo está, redirigir a la página principal del usuario logueado
-// Si no lo está, mantener en Login
+/* -- Función para verificar si hay un usuario guardado en el Local Storage - */
+window.onload = function() {
+    const userLoggedIn = localStorage.getItem("user");
+    if (userLoggedIn) {
+        location.href = "../Principal/principal.html"
+    }
+}
