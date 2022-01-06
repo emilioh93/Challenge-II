@@ -1,0 +1,23 @@
+.error input {
+    border: 0.2rem solid #ff6550;
+}
+
+.helpMessage {
+    display: none;
+}
+
+.helpMessage-active {
+    display: block;
+}
+
+.alertMessage {
+    display: none;
+}
+
+.alertMessage-active {
+    display: block;
+}
+
+.success input {
+    border: 0.2rem solid rgb(164, 241, 47);
+}
