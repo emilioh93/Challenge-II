@@ -68,6 +68,6 @@ const login = () => {
 window.onload = function() {
     const userLoggedIn = localStorage.getItem("user");
     if (userLoggedIn) {
-        location.href = "../Principal/principal.html"
+        location.href = "./principal.html"
     }
 }
