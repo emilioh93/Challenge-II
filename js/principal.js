@@ -22,13 +22,13 @@ const updateImages = () => {
                     </button>
                   `;
     document.getElementById("postsContainer").innerHTML += `
-                  <div class="col-md-4 col-sm-12">
+                  <div class="col-md-4 col-sm-12 postAdded">
                           <div class="card w-100">
                             <img src=${item.url} class="card-img-top" alt="Post ${index}" />
                             <div class="card-body">
                               <div class="d-flex justify-content-between">
-                                <span>Date: ${item.date}</span>
-                                <span>Likes: ${item.likes}</span>
+                                <span>${item.date}</span>
+                                <span><i class="far fa-heart"></i> ${item.likes}</span>
                               </div>
                             </div>
                           </div>
@@ -40,24 +40,24 @@ const updateImages = () => {
 const addImage = (image) => {
   images.push(image);
   document.getElementById("addedStoriesContainer").innerHTML += `
-  <button class="story">
-  <div class="profile">
-  <img src=${image.url} alt="Historia de Social Rolling" />
-  </div>
-  </button>
+    <button class="story">
+      <div class="profile">
+        <img src=${image.url} alt="Historia de Social Rolling" />
+      </div>
+    </button>
   `;
   document.getElementById("postsContainer").innerHTML += `
-  <div class="col-md-4 col-sm-12">
-  <div class="card w-100">
-  <img src=${image.url} class="card-img-top" alt="Post de Social Rolling" />
-  <div class="card-body">
-  <div class="d-flex justify-content-between">
-  <span>Date: ${image.date}</span>
-  <span>Likes: ${image.likes}</span>
-  </div>
-  </div>
-  </div>
-  </div>
+    <div class="col-md-4 col-sm-12 postAdded">
+      <div class="card w-100">
+        <img src=${image.url} class="card-img-top" alt="Post de Social Rolling" />
+        <div class="card-body">
+          <div class="d-flex justify-content-between">
+            <span>${image.date}</span>
+            <span><i class="far fa-heart"></i> ${image.likes}</span>
+          </div>
+        </div>
+      </div>
+    </div>
   `;
   addToLocalStorage();
 };
