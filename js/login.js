@@ -50,20 +50,21 @@ inputs.forEach(input => {
 })
 
 /* ---- Función para loguearse ejecutada desde botón Login del formulario --- */
-const login = () => {
+document.getElementById('form').addEventListener('submit', function(e) {
+    e.preventDefault()
     if (campos.email && campos.password) {
         document.getElementById('alertMessage').classList.remove('alertMessage-active');
         form.reset();
         document.getElementById('emailContainer').classList.remove('success')
         document.getElementById('passwordContainer').classList.remove('success')
         localStorage.setItem("user", user);
-        location.href = "../Principal/principal.html"
+        location.href = "./principal.html"
 
     } else {
         document.getElementById('alertMessage').classList.add('alertMessage-active');
     }
-}
 
+})
 /* -- Función para verificar si hay un usuario guardado en el Local Storage - */
 window.onload = function() {
     const userLoggedIn = localStorage.getItem("user");
