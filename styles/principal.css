@@ -57,6 +57,11 @@
   color: rgb(124, 121, 121);
 }
 
+.likesButton {
+  border: none;
+  background: transparent;
+}
+
 @media (max-width: 767.98px) {
   #storiesContainer {
     justify-content: flex-start;
