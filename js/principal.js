@@ -40,7 +40,7 @@ const updateImages = () => {
         <div class="modal-dialog modal-fullscreen-sm-down">
           <div class="modal-content">
             <div class="modal-body text-center">
-              <img src=${item.url} alt="Historia ${index}" />
+              <img class="w-100" src=${item.url} alt="Historia ${index}" />
             </div>
             <div class="modal-footer d-flex justify-content-between">
               <div class="h3 text-warning"><i class="fas fa-minus-circle"></i></div>
@@ -83,7 +83,7 @@ const addImage = (image) => {
         <div class="modal-dialog modal-fullscreen-sm-down">
           <div class="modal-content">
             <div class="modal-body text-center">
-              <img src=${image.url} alt="Historia de Rolling Social" />
+              <img class="w-100" src=${image.url} alt="Historia de Rolling Social" />
             </div>
             <div class="modal-footer d-flex justify-content-between">
               <div class="h3 text-warning"><i class="fas fa-minus-circle"></i></div>
