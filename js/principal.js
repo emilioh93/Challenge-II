@@ -67,7 +67,7 @@ formAddImage.addEventListener("submit", function (e) {
   e.preventDefault();
   const url = document.getElementById("inputURLImage").value;
   const likes = getRandomLikes(0, 20);
-  const currentDate = new Date();
+  const currentDate = moment().format("l");
 
   const newImg = new Image(url, parseInt(likes), currentDate);
   addImage(newImg);
