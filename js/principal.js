@@ -4,7 +4,7 @@ function Image(url, likes, date) {
   this.date = date;
 }
 
-const images = [];
+let images = [];
 const formAddImage = document.getElementById("formAddImage");
 
 const getRandomLikes = (min, max) => {
@@ -39,27 +39,27 @@ const updateImages = () => {
 
 const addImage = (image) => {
   images.push(image);
-  localStorage.setItem("images", JSON.stringify(images));
   document.getElementById("addedStoriesContainer").innerHTML += `
-      <button class="story">
-        <div class="profile">
-          <img src=${image.url} alt="Historia de Social Rolling" />
-        </div>
-      </button>
-    `;
+  <button class="story">
+  <div class="profile">
+  <img src=${image.url} alt="Historia de Social Rolling" />
+  </div>
+  </button>
+  `;
   document.getElementById("postsContainer").innerHTML += `
-    <div class="col-md-4 col-sm-12">
-            <div class="card w-100">
-              <img src=${image.url} class="card-img-top" alt="Post de Social Rolling" />
-              <div class="card-body">
-                <div class="d-flex justify-content-between">
-                  <span>Date: ${image.date}</span>
-                  <span>Likes: ${image.likes}</span>
-                </div>
-              </div>
-            </div>
-        </div>
-    `;
+  <div class="col-md-4 col-sm-12">
+  <div class="card w-100">
+  <img src=${image.url} class="card-img-top" alt="Post de Social Rolling" />
+  <div class="card-body">
+  <div class="d-flex justify-content-between">
+  <span>Date: ${image.date}</span>
+  <span>Likes: ${image.likes}</span>
+  </div>
+  </div>
+  </div>
+  </div>
+  `;
+  addToLocalStorage();
 };
 
 // Publish Button
@@ -74,4 +74,14 @@ formAddImage.addEventListener("submit", function (e) {
   formAddImage.reset();
 });
 
-updateImages();
+const addToLocalStorage = () => {
+  localStorage.setItem("images", JSON.stringify(images));
+};
+
+window.onload = () => {
+  const storage = JSON.parse(localStorage.getItem("images"));
+  if (storage) {
+    images = storage;
+    updateImages();
+  }
+};
