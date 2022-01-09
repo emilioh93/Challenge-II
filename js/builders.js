@@ -1,5 +1,5 @@
 const buildStory = (item) => {
-  document.getElementById("addedStoriesContainer").innerHTML += `
+    document.getElementById("addedStoriesContainer").innerHTML += `
       <button class="story" data-bs-toggle="modal" data-bs-target="#storyModal${item.id}">
         <div class="profile">
           <img src=${item.url} alt="Historia Social Rolling" />
@@ -9,10 +9,10 @@ const buildStory = (item) => {
 };
 
 const buildStoryModal = (item) => {
-  const dataStorage = JSON.parse(localStorage.getItem("images"));
-  const index = dataStorage?.findIndex((element) => element.id === item.id);
+    const dataStorage = JSON.parse(localStorage.getItem("images"));
+    const index = dataStorage.findIndex((element) => element.id === item.id);
 
-  document.getElementById("storiesModalsContainer").innerHTML += `
+    document.getElementById("storiesModalsContainer").innerHTML += `
         <article class="modal fade" id="storyModal${item.id}" tabindex="-1" aria-labelledby="storyModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-fullscreen-sm-down">
             <div class="modal-content">
@@ -20,7 +20,11 @@ const buildStoryModal = (item) => {
                 <img class="w-100" src=${item.url} alt="Historia Social Rolling" />
               </div>
               <div class="modal-footer d-flex justify-content-between">
-                <div class="h3 text-warning"><i class="fas fa-minus-circle" onclick="deleteImage(${item.id})"></i></div>
+                <div class="h3">
+                    <button onclick="deleteImage(${item.id})" class="likesButton">
+                        <i class="fas fa-minus-circle text-warning" ></i>
+                    </button>
+                </div>
                 <div class="d-flex flex-column">
                   <span id="likes${item.id}" class="h3">
                     <button onclick="addLike(${index})" class="likesButton">
@@ -37,7 +41,7 @@ const buildStoryModal = (item) => {
 };
 
 const buildPost = (item) => {
-  document.getElementById("postsContainer").innerHTML += `
+    document.getElementById("postsContainer").innerHTML += `
     <div class="col-md-4 col-sm-12 postAdded">
       <div class="card w-100">
         <img src=${item.url} class="card-img-top" alt="Post de Social Rolling" />
