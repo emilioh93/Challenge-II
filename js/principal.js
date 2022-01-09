@@ -39,6 +39,7 @@ const updateImages = () => {
     const idStoriesContainer = "addedStoriesContainer";
     const idPostsContainer = "postsContainer";
     const idStoriesModalsContainer = "storiesModalsContainer";
+
     localStorageImages.forEach((item) => {
         buildStory(item, idStoriesContainer);
         buildPost(item, idPostsContainer);
@@ -56,10 +57,13 @@ const addImage = (image) => {
     images.push(image);
     addToLocalStorage();
     // Mostrar HTML
-    const idPostsContainer = "postsContainer";
     const idAddedStoriesContainer = "addedStoriesContainer";
+    const idPostsContainer = "postsContainer";
+    const idStoriesModalsContainer = "storiesModalsContainer";
+
     buildPost(image, idPostsContainer);
     buildStory(image, idAddedStoriesContainer);
+    buildStoryModal(image, idStoriesModalsContainer);
 };
 
 // Evento disparado al presionar botón Publicar
@@ -88,9 +92,7 @@ formAddImage.addEventListener("submit", function(e) {
             "La imagen ha sido publicada exitosamente",
             "success"
         );
-        // Cerrar modal de bootstrap
-        // document.getElementsByTagName("userModal").classList.remove("show");
-        $('#userModal').modal('hide');
+        $("#userModal").modal("hide");
     }
 });
 
