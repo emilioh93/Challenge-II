@@ -15,30 +15,30 @@
 
 <body class="container">
     <header>
-        <h1 class="text-center mt-5">Social Rolling</h1>
+        <h1 class="text-center mt-5 text-white">Social Rolling</h1>
         <section id="storiesContainer" class="mt-5 py-4">
-            <!-- User Add Story Button -->
+            <!-- Botón agregar imagen -->
             <button class="story" data-bs-toggle="modal" data-bs-target="#userModal">
           <div id="userProfile" class="profile">
             <img src="./img/default-instagram.jpg" alt="imagen de perfil" />
             <div id="plusIcon"><em class="fas fa-plus-circle fa-2x"></em></div>
           </div>
         </button>
-            <!-- User added stories -->
+            <!-- Historias -->
             <div id="addedStoriesContainer" class="d-flex"></div>
         </section>
-        <!-- User Modal -->
+        <!-- Modal de usuario -->
         <div class="modal fade" id="userModal" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content bg-dark text-white">
                     <div class="modal-header">
                         <h5 class="modal-title" id="userModalLabel">Publish new image</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
-                        <form id="formAddImage">
+                    <form id="formAddImage">
+                        <div class="modal-body">
                             <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Image URL</label
+                                <label for="nputURL" class="form-label">Image URL</label
                   >
                   <input
                     type="url"
@@ -52,22 +52,22 @@
                     Insert your image URL here.
                   </div>
                 </div>
-                <div class="modal-footer">
-                  <button
-                    type="button"
-                    class="btn btn-secondary"
-                    data-bs-dismiss="modal"
-                  >
-                    Close
-                  </button>
-                  <button type="submit" class="btn btn-primary">Publish</button>
-                </div>
-              </form>
-            </div>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button type="submit" class="btn btn-primary">Publish</button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
-      <!-- Story Modal -->
+      <!-- Modal de historias -->
       <section id="storiesModalsContainer"></section>
     </header>
     <main>

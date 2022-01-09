@@ -14,16 +14,16 @@ const buildStoryModal = (item, elementId) => {
 
     document.getElementById(elementId).innerHTML += `
         <article class="modal fade" id="storyModal${item.id}" tabindex="-1" aria-labelledby="storyModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-fullscreen-sm-down">
+          <div class="modal-dialog modal-dialog-centered modal-fullscreen-sm-down">
             <div class="modal-content">
-              <div class="modal-header">
-                <span class="text-secondary">${item.date}</span>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              <div class="modal-header bg-dark text-white">
+                <span class="h5">${item.date}</span>
+                <button type="button" class="btn-close bg-white" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
-              <div class="modal-body text-center">
+              <div class="modal-body bg-dark text-center">
                 <img class="w-100" src=${item.url} alt="Historia Social Rolling" />
               </div>
-              <div class="modal-footer d-flex justify-content-between">
+              <div class="modal-footer bg-dark d-flex justify-content-between">
                 <div class="h3">
                     <button onclick="deleteImage(${item.id})" class="likesButton">
                         <i class="fas fa-minus-circle text-warning" ></i>
@@ -33,7 +33,8 @@ const buildStoryModal = (item, elementId) => {
                   <span id="likes${item.id}" class="h3">
                     <button onclick="addLike(${index})" class="likesButton">
                         <i class="far fa-heart text-danger"></i>
-                    </button> ${item.likes}
+                    </button>
+                    <span class="h3 text-white"> ${item.likes}</span>
                   </span>
                 </div>
               </div>
@@ -46,11 +47,11 @@ const buildStoryModal = (item, elementId) => {
 const buildPost = (item, elementId) => {
     document.getElementById(elementId).innerHTML += `
     <div class="col-md-4 col-sm-12 mb-4">
-      <div class="card w-100 postAdded">
+      <div class="card roundBorder w-100 postAdded">
         <div id="postImg">
-          <img src=${item.url} class="card-img-top" alt="Post de Social Rolling" />
+          <img src=${item.url} class="card-img-top bg-dark" alt="Post de Social Rolling" />
         </div>
-        <div class="card-footer bg-white">
+        <div class="card-footer bg-dark text-white">
           <div id="postFooter" class="d-flex justify-content-between">
             <span>${item.date}</span>
             <span><i class="far fa-heart"></i> ${item.likes}</span>

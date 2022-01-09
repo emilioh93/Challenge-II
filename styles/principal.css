@@ -1,12 +1,40 @@
 :root {
     --red: #d81d26;
+    --bg-black: rgb(39, 38, 38);
+    --grey: rgb(53, 52, 52);
+}
+
+body {
+    background: var(--bg-black)
+}
+
+.roundBorder {
+    border-radius: 0.3rem;
+}
+
+.modal-content {
+    border-radius: 0.5rem;
+}
+
+.modal-header {
+    border-bottom: 1px solid var(--grey);
+}
+
+.modal-footer {
+    border-top: 1px solid var(--grey);
+}
+
+.swal2-container.swal2-center>.swal2-popup {
+    background-color: var(--bg-black);
+    color: white;
 }
 
 #storiesContainer {
     display: flex;
     justify-content: center;
-    border: 0.1rem solid #ccc;
+    border: 0.1rem solid var(--grey);
     overflow-x: scroll;
+    border-radius: 0.3rem;
 }
 
 ::-webkit-scrollbar {
@@ -17,6 +45,7 @@
     box-shadow: 0px 15px 21px -10px rgba(0, 0, 0, 0.61);
     height: 100%;
     position: relative;
+    border: 1px solid var(--grey);
 }
 
 #postImg img {
@@ -48,8 +77,8 @@
     border-radius: 50%;
     padding: 0;
     margin: 0.09rem;
-    border: solid 0.3rem white;
-    background: white;
+    border: solid 0.3rem var(--bg-black);
+    background: var(--bg-black);
     object-fit: cover;
 }
 
@@ -61,9 +90,9 @@
     position: absolute;
     top: 5rem;
     left: 5rem;
-    background: white;
+    background: var(--bg-black);
     border-radius: 50%;
-    color: rgb(124, 121, 121);
+    color: #0093E9;
 }
 
 .likesButton {

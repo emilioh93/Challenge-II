@@ -71,7 +71,7 @@ formAddImage.addEventListener("submit", function(e) {
         const url = document.getElementById("inputURLImage").value;
         const likes = getRandomLikes(0, 20);
         moment.locale("es");
-        const currentDate = moment();
+        const currentDate = moment().format("l");
 
         const id = Date.now();
 
