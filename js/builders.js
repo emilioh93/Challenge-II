@@ -42,11 +42,13 @@ const buildStoryModal = (item) => {
 
 const buildPost = (item) => {
     document.getElementById("postsContainer").innerHTML += `
-    <div class="col-md-4 col-sm-12 postAdded">
-      <div class="card w-100">
-        <img src=${item.url} class="card-img-top" alt="Post de Social Rolling" />
-        <div class="card-body">
-          <div class="d-flex justify-content-between">
+    <div class="col-md-4 col-sm-12">
+      <div class="card w-100 postAdded">
+        <div id="postImg">
+          <img src=${item.url} class="card-img-top" alt="Post de Social Rolling" />
+        </div>
+        <div class="card-footer bg-white">
+          <div id="postFooter" class="d-flex justify-content-between">
             <span>${item.date}</span>
             <span><i class="far fa-heart"></i> ${item.likes}</span>
           </div>
