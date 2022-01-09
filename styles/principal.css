@@ -71,6 +71,11 @@
     background: transparent;
 }
 
+.modal-fullscreen-sm-down .modal-body {
+    display: flex;
+    align-items: center;
+}
+
 @media (max-width: 767.98px) {
     #storiesContainer {
         justify-content: flex-start;

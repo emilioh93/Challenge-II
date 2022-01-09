@@ -16,6 +16,10 @@ const buildStoryModal = (item) => {
         <article class="modal fade" id="storyModal${item.id}" tabindex="-1" aria-labelledby="storyModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-fullscreen-sm-down">
             <div class="modal-content">
+              <div class="modal-header">
+                <span class="text-secondary">${item.date}</span>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
               <div class="modal-body text-center">
                 <img class="w-100" src=${item.url} alt="Historia Social Rolling" />
               </div>
@@ -31,7 +35,6 @@ const buildStoryModal = (item) => {
                         <i class="far fa-heart text-danger"></i>
                     </button> ${item.likes}
                   </span>
-                  <span class="text-secondary">${item.date}</span>
                 </div>
               </div>
             </div>
