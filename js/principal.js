@@ -33,14 +33,18 @@ const addToLocalStorage = () => {
 const addImage = (image) => {
     images.push(image);
     addToLocalStorage();
-    location.reload();
 };
 
 // Evento disparado al presionar botón Publicar
 formAddImage.addEventListener("submit", function(e) {
     e.preventDefault();
-    if ((localStorageImages.length === 3)) {
-        alert("No se puede publicar mas imagenes");
+    if (localStorageImages.length === 3) {
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Alcanzaste el número máximos de publicaciones posibles",
+            footer: "Elimina alguna publicación si quieres agregar una nueva.",
+        });
     } else {
         const url = document.getElementById("inputURLImage").value;
         const likes = getRandomLikes(0, 20);
@@ -50,14 +54,35 @@ formAddImage.addEventListener("submit", function(e) {
         const newImg = new Image(id, url, parseInt(likes), currentDate);
         addImage(newImg);
         formAddImage.reset();
+        Swal.fire(
+            "Imagen publicada",
+            "La imagen ha sido publicada exitosamente",
+            "success"
+        );
     }
 });
 
 // Eliminar imagen del Local Storage
 const deleteImage = (id) => {
-    const newLocalStorage = localStorageImages.filter((e) => e.id !== id);
-    localStorage.setItem("images", JSON.stringify(newLocalStorage));
-    location.reload();
+    Swal.fire({
+        title: "¿Estás seguro que quieres eliminarla?",
+        text: "Al eliminarla, la publicación se borrará permanentemente",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Eliminar",
+    }).then((result) => {
+        if (result.isConfirmed) {
+            const newLocalStorage = localStorageImages.filter((e) => e.id !== id);
+            localStorage.setItem("images", JSON.stringify(newLocalStorage));
+            Swal.fire(
+                "Publicación eliminada",
+                "Tu publicación ha sido eliminada exitosamente.",
+                "success"
+            );
+        }
+    });
 };
 
 // Incrementar likes
