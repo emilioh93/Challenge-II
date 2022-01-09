@@ -8,11 +8,11 @@ const buildStory = (item, elementId) => {
     `;
 };
 
-const buildStoryModal = (item) => {
+const buildStoryModal = (item, elementId) => {
     const dataStorage = JSON.parse(localStorage.getItem("images"));
     const index = dataStorage.findIndex((element) => element.id === item.id);
 
-    document.getElementById("storiesModalsContainer").innerHTML += `
+    document.getElementById(elementId).innerHTML += `
         <article class="modal fade" id="storyModal${item.id}" tabindex="-1" aria-labelledby="storyModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-fullscreen-sm-down">
             <div class="modal-content">
@@ -43,8 +43,8 @@ const buildStoryModal = (item) => {
       `;
 };
 
-const buildPost = (item) => {
-    document.getElementById("postsContainer").innerHTML += `
+const buildPost = (item, elementId) => {
+    document.getElementById(elementId).innerHTML += `
     <div class="col-md-4 col-sm-12 mb-4">
       <div class="card w-100 postAdded">
         <div id="postImg">

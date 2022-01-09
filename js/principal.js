@@ -36,11 +36,13 @@ const getRandomLikes = (min, max) => {
 
 // Actualizar Local Storage
 const updateImages = () => {
-    const elementId = "addedStoriesContainer";
+    const idStoriesContainer = "addedStoriesContainer";
+    const idPostsContainer = "postsContainer";
+    const idStoriesModalsContainer = "storiesModalsContainer";
     localStorageImages.forEach((item) => {
-        buildStory(item, elementId);
-        buildPost(item);
-        buildStoryModal(item);
+        buildStory(item, idStoriesContainer);
+        buildPost(item, idPostsContainer);
+        buildStoryModal(item, idStoriesModalsContainer);
     });
 };
 
@@ -119,8 +121,12 @@ window.onload = () => {
         images = localStorageImages;
         updateImages();
     }
-    const elementId = "aditionalStoriesContainer";
+    const idAdditionalStoriesContainer = "additionalStoriesContainer";
+    const idAdditionalStoriesModalContainer = "additionalStoriesModalsContainer";
+    const idAdditionalPostsContainer = "additionalPostsContainer";
     additionalImages.forEach((image) => {
-        buildStory(image, elementId);
+        buildStory(image, idAdditionalStoriesContainer);
+        buildStoryModal(image, idAdditionalStoriesModalContainer);
+        buildPost(image, idAdditionalPostsContainer);
     });
 };
