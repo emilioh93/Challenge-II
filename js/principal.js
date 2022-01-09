@@ -39,14 +39,18 @@ const addImage = (image) => {
 // Evento disparado al presionar botón Publicar
 formAddImage.addEventListener("submit", function(e) {
     e.preventDefault();
-    const url = document.getElementById("inputURLImage").value;
-    const likes = getRandomLikes(0, 20);
-    const currentDate = moment().format("l");
-    const id = Date.now();
+    if ((localStorageImages.length === 3)) {
+        alert("No se puede publicar mas imagenes");
+    } else {
+        const url = document.getElementById("inputURLImage").value;
+        const likes = getRandomLikes(0, 20);
+        const currentDate = moment().format("l");
+        const id = Date.now();
 
-    const newImg = new Image(id, url, parseInt(likes), currentDate);
-    addImage(newImg);
-    formAddImage.reset();
+        const newImg = new Image(id, url, parseInt(likes), currentDate);
+        addImage(newImg);
+        formAddImage.reset();
+    }
 });
 
 // Eliminar imagen del Local Storage
