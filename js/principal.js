@@ -55,12 +55,17 @@ const addToLocalStorage = () => {
 const addImage = (image) => {
     images.push(image);
     addToLocalStorage();
+    // Mostrar HTML
+    const idPostsContainer = "postsContainer";
+    const idAddedStoriesContainer = "addedStoriesContainer";
+    buildPost(image, idPostsContainer);
+    buildStory(image, idAddedStoriesContainer);
 };
 
 // Evento disparado al presionar botón Publicar
 formAddImage.addEventListener("submit", function(e) {
     e.preventDefault();
-    if (localStorageImages.length === 6) {
+    if (localStorageImages.length >= 6) {
         Swal.fire({
             icon: "error",
             title: "Oops...",
@@ -83,6 +88,9 @@ formAddImage.addEventListener("submit", function(e) {
             "La imagen ha sido publicada exitosamente",
             "success"
         );
+        // Cerrar modal de bootstrap
+        // document.getElementsByTagName("userModal").classList.remove("show");
+        $('#userModal').modal('hide');
     }
 });
 
