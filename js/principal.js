@@ -6,6 +6,25 @@ function Image(id, url, likes, date) {
     this.date = date;
 }
 
+const additionalImages = [{
+        date: "12/1/2021",
+        id: 123,
+        likes: 80,
+        url: "https://cdn.pixabay.com/photo/2017/04/05/10/45/girl-2204622_960_720.jpg",
+    },
+    {
+        date: "11/4/2021",
+        id: 234,
+        likes: 34,
+        url: "https://cdn.pixabay.com/photo/2020/05/17/20/21/cat-5183427_960_720.jpg",
+    },
+    {
+        date: "1/1/2022",
+        id: 345,
+        likes: 22,
+        url: "https://cdn.pixabay.com/photo/2020/06/24/10/04/man-5335547_960_720.jpg",
+    },
+];
 let images = [];
 const formAddImage = document.getElementById("formAddImage");
 const localStorageImages = JSON.parse(localStorage.getItem("images"));
@@ -17,8 +36,9 @@ const getRandomLikes = (min, max) => {
 
 // Actualizar Local Storage
 const updateImages = () => {
+    const elementId = "addedStoriesContainer";
     localStorageImages.forEach((item) => {
-        buildStory(item);
+        buildStory(item, elementId);
         buildPost(item);
         buildStoryModal(item);
     });
@@ -93,11 +113,14 @@ const addLike = (index) => {
     }
 };
 
-// Renderizar Local Storage al cargar página
+// Renderizar Local Storage al cargar página y cargar imágenes adicionales
 window.onload = () => {
-    console.log("🚀 ~ localStorageImages", localStorageImages);
     if (localStorageImages) {
         images = localStorageImages;
         updateImages();
     }
+    const elementId = "aditionalStoriesContainer";
+    additionalImages.forEach((image) => {
+        buildStory(image, elementId);
+    });
 };

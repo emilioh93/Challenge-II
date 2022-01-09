@@ -1,5 +1,5 @@
-const buildStory = (item) => {
-    document.getElementById("addedStoriesContainer").innerHTML += `
+const buildStory = (item, elementId) => {
+    document.getElementById(elementId).innerHTML += `
       <button class="story" data-bs-toggle="modal" data-bs-target="#storyModal${item.id}">
         <div class="profile">
           <img src=${item.url} alt="Historia Social Rolling" />
@@ -45,7 +45,7 @@ const buildStoryModal = (item) => {
 
 const buildPost = (item) => {
     document.getElementById("postsContainer").innerHTML += `
-    <div class="col-md-4 col-sm-12">
+    <div class="col-md-4 col-sm-12 mb-4">
       <div class="card w-100 postAdded">
         <div id="postImg">
           <img src=${item.url} class="card-img-top" alt="Post de Social Rolling" />
