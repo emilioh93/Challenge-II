@@ -1,3 +1,4 @@
+// Constructor de Imagen
 function Image(id, url, likes, date) {
   this.id = id;
   this.url = url;
@@ -7,29 +8,35 @@ function Image(id, url, likes, date) {
 
 let images = [];
 const formAddImage = document.getElementById("formAddImage");
+const localStorageImages = JSON.parse(localStorage.getItem("images"));
 
+// Función para generar likes de manera aleatoria
 const getRandomLikes = (min, max) => {
   return Math.random() * (max - min) + min;
 };
 
+// Actualizar Local Storage
 const updateImages = () => {
-  const localStorageImages = JSON.parse(localStorage.getItem("images"));
-  localStorageImages?.forEach((item) => {
+  localStorageImages.forEach((item) => {
     buildStory(item);
     buildPost(item);
     buildStoryModal(item);
   });
 };
 
-const addImage = (image) => {
-  images.push(image);
-  buildStory(image);
-  buildPost(image);
-  buildStoryModal(image);
-  addToLocalStorage();
+// Agregar imagen a Local Storage
+const addToLocalStorage = () => {
+  localStorage.setItem("images", JSON.stringify(images));
 };
 
-// Publish Button
+// Agregar nueva imagen
+const addImage = (image) => {
+  images.push(image);
+  addToLocalStorage();
+  location.reload();
+};
+
+// Evento disparado al presionar botón Publicar
 formAddImage.addEventListener("submit", function (e) {
   e.preventDefault();
   const url = document.getElementById("inputURLImage").value;
@@ -42,19 +49,26 @@ formAddImage.addEventListener("submit", function (e) {
   formAddImage.reset();
 });
 
-const addToLocalStorage = () => {
-  localStorage.setItem("images", JSON.stringify(images));
+// Eliminar imagen del Local Storage
+const deleteImage = (id) => {
+  const newLocalStorage = localStorageImages.filter((e) => e.id !== id);
+  localStorage.setItem("images", JSON.stringify(newLocalStorage));
+  location.reload();
 };
 
+// Incrementar likes
+const addLike = (index) => {
+  const itemInStorage = JSON.parse(localStorage.getItem("images"))[index];
+  itemInStorage.likes = itemInStorage?.likes + 1;
+  // FIXME: el problema está en que el ls se setea por un sólo elemento que pasa a ser objeto
+  localStorage.setItem("images", JSON.stringify(newLocalStorage));
+};
+
+// Renderizar Local Storage al cargar página
 window.onload = () => {
-  const storage = JSON.parse(localStorage.getItem("images"));
-  if (storage) {
-    images = storage;
+  console.log("🚀 ~ localStorageImages", localStorageImages);
+  if (localStorageImages) {
+    images = localStorageImages;
     updateImages();
   }
-};
-
-// Increment likes
-const addLike = (id) => {
-  // Buscar objeto de Local Storage
 };

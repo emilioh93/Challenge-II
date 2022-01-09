@@ -1,4 +1,17 @@
+const buildStory = (item) => {
+  document.getElementById("addedStoriesContainer").innerHTML += `
+      <button class="story" data-bs-toggle="modal" data-bs-target="#storyModal${item.id}">
+        <div class="profile">
+          <img src=${item.url} alt="Historia Social Rolling" />
+        </div>
+      </button>
+    `;
+};
+
 const buildStoryModal = (item) => {
+  const dataStorage = JSON.parse(localStorage.getItem("images"));
+  const index = dataStorage?.findIndex((element) => element.id === item.id);
+
   document.getElementById("storiesModalsContainer").innerHTML += `
         <article class="modal fade" id="storyModal${item.id}" tabindex="-1" aria-labelledby="storyModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-fullscreen-sm-down">
@@ -7,11 +20,12 @@ const buildStoryModal = (item) => {
                 <img class="w-100" src=${item.url} alt="Historia Social Rolling" />
               </div>
               <div class="modal-footer d-flex justify-content-between">
-                <div class="h3 text-warning"><i class="fas fa-minus-circle"></i></div>
+                <div class="h3 text-warning"><i class="fas fa-minus-circle" onclick="deleteImage(${item.id})"></i></div>
                 <div class="d-flex flex-column">
-                  <span id="likes${item.id}" class="h3"><button onclick="addLike(${item.id})"
-                  class="likesButton">
-                    <i class="far fa-heart text-danger"></i></button> ${item.likes}
+                  <span id="likes${item.id}" class="h3">
+                    <button onclick="addLike(${index})" class="likesButton">
+                        <i class="far fa-heart text-danger"></i>
+                    </button> ${item.likes}
                   </span>
                   <span class="text-secondary">${item.date}</span>
                 </div>
@@ -22,8 +36,8 @@ const buildStoryModal = (item) => {
       `;
 };
 
-const buildPost = (item)=>{
-    document.getElementById("postsContainer").innerHTML += `
+const buildPost = (item) => {
+  document.getElementById("postsContainer").innerHTML += `
     <div class="col-md-4 col-sm-12 postAdded">
       <div class="card w-100">
         <img src=${item.url} class="card-img-top" alt="Post de Social Rolling" />
@@ -36,14 +50,4 @@ const buildPost = (item)=>{
       </div>
     </div>
   `;
-}
-
-const buildStory = (item) => {
-    document.getElementById("addedStoriesContainer").innerHTML += `
-      <button class="story" data-bs-toggle="modal" data-bs-target="#storyModal${item.id}">
-        <div class="profile">
-          <img src=${item.url} alt="Historia Social Rolling" />
-        </div>
-      </button>
-    `;
-}
+};
