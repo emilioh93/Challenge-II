@@ -70,7 +70,9 @@ formAddImage.addEventListener("submit", function(e) {
     } else {
         const url = document.getElementById("inputURLImage").value;
         const likes = getRandomLikes(0, 20);
+        moment.locale("es");
         const currentDate = moment().format("l");
+
         const id = Date.now();
 
         const newImg = new Image(id, url, parseInt(likes), currentDate);
