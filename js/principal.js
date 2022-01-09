@@ -6,8 +6,8 @@ function Image(id, url, likes, date) {
     this.date = date;
 }
 
-const additionalImages = [{
-        date: "12/1/2021",
+let images = [{
+        date: "12/1/2022",
         id: 123,
         likes: 80,
         url: "https://cdn.pixabay.com/photo/2017/04/05/10/45/girl-2204622_960_720.jpg",
@@ -19,15 +19,15 @@ const additionalImages = [{
         url: "https://cdn.pixabay.com/photo/2020/05/17/20/21/cat-5183427_960_720.jpg",
     },
     {
-        date: "1/1/2022",
+        date: "11/12/2022",
         id: 345,
         likes: 22,
         url: "https://cdn.pixabay.com/photo/2020/06/24/10/04/man-5335547_960_720.jpg",
     },
 ];
-let images = [];
+
 const formAddImage = document.getElementById("formAddImage");
-const localStorageImages = JSON.parse(localStorage.getItem("images"));
+let localStorageImages = JSON.parse(localStorage.getItem("images"));
 
 // Función para generar likes de manera aleatoria
 const getRandomLikes = (min, max) => {
@@ -60,7 +60,7 @@ const addImage = (image) => {
 // Evento disparado al presionar botón Publicar
 formAddImage.addEventListener("submit", function(e) {
     e.preventDefault();
-    if (localStorageImages.length === 3) {
+    if (localStorageImages.length === 6) {
         Swal.fire({
             icon: "error",
             title: "Oops...",
@@ -71,7 +71,7 @@ formAddImage.addEventListener("submit", function(e) {
         const url = document.getElementById("inputURLImage").value;
         const likes = getRandomLikes(0, 20);
         moment.locale("es");
-        const currentDate = moment().format("l");
+        const currentDate = moment();
 
         const id = Date.now();
 
@@ -122,13 +122,8 @@ window.onload = () => {
     if (localStorageImages) {
         images = localStorageImages;
         updateImages();
+    } else {
+        localStorage.setItem("images", JSON.stringify(images));
+        localStorageImages = images;
     }
-    const idAdditionalStoriesContainer = "additionalStoriesContainer";
-    const idAdditionalStoriesModalContainer = "additionalStoriesModalsContainer";
-    const idAdditionalPostsContainer = "additionalPostsContainer";
-    additionalImages.forEach((image) => {
-        buildStory(image, idAdditionalStoriesContainer);
-        buildStoryModal(image, idAdditionalStoriesModalContainer);
-        buildPost(image, idAdditionalPostsContainer);
-    });
 };
