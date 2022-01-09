@@ -115,6 +115,13 @@ const deleteImage = (id) => {
                 "Tu publicación ha sido eliminada exitosamente.",
                 "success"
             );
+            $(`#storyModal${id}`).modal("hide");
+            const parentNodePosts = document.getElementById("postsContainer");
+            const parentNodeStories = document.getElementById("addedStoriesContainer");
+            const childNodePost = document.getElementById(`post${id}`);
+            const childNodeStory = document.getElementById(`story${id}`);
+            parentNodePosts.removeChild(childNodePost);
+            parentNodeStories.removeChild(childNodeStory);
         }
     });
 };
