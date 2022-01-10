@@ -1,0 +1,16 @@
+#registerImg {
+    width: 40%;
+}
+
+a {
+    text-transform: uppercase;
+}
+
+@media (max-width: 767.98px) {
+    h1 {
+        margin-top: 50%
+    }
+    #registerImg {
+        width: 100%;
+    }
+}
