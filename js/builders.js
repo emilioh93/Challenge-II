@@ -16,6 +16,7 @@ const buildItemsForModal = (items) => {
 
     carouselInner.removeChild(carouselChild);
     const firstItem = items.shift();
+    console.log("🚀 ~ firstItem", firstItem);
 
     document.getElementById("carouselInner").innerHTML += `
     <div id="carouselChild"></div>
@@ -25,24 +26,30 @@ const buildItemsForModal = (items) => {
     document.getElementById("carouselChild").innerHTML += `
       <div class="carousel-item active" data-bs-interval="3000">
         <div class="card w-100 h-100">
-          <img src=${firstItem.url} class="w-100 d-block" alt="Historia de Social Rolling">
+          <img src=${
+            firstItem.url
+          } class="w-100 d-block" alt="Historia de Social Rolling">
           <div class="card-body bg-dark">
             <div class="d-flex justify-content-between">
               <div id="deleteButtonContainer" class="h3">
-                  <button id="deleteButton${firstItem.id}" onclick="deleteImage(${firstItem.id})" class="likesButton">
-                      <i class="fas fa-minus-circle text-warning" ></i>
+                  <button id="deleteButton${
+                    firstItem.id
+                  }" onclick="deleteImage(${firstItem.id})" class="likesButton">
+                      <i class="fas fa-minus-circle text-warning"></i>
                   </button>
               </div>
               <div class="d-flex flex-column">
                 <span id="likes${firstItem.id}" class="h3">
-                  <button onclick="addLike()" class="likesButton">
+                  <button onclick="addLike(${0})" class="likesButton">
                       <i class="far fa-heart text-danger"></i>
                   </button>
                   <span class="h3 text-white"> ${firstItem.likes}</span>
                 </span>
               </div>
             </div>
-            <p class="card-text text-end"><small class="text-muted">${firstItem.date}</small></p>
+            <p class="card-text text-end"><small class="text-muted">${
+              firstItem.date
+            }</small></p>
           </div>
         </div>
       </div>
@@ -55,6 +62,7 @@ const buildItemsForModal = (items) => {
 
     // Se crean el resto de los elementos sin el active
     items.forEach((item) => {
+        const index = items.indexOf(item) + 1;
         document.getElementById("carouselChild").innerHTML += `
           <div class="carousel-item" data-bs-interval="3000">
             <div class="card w-100 h-100">
@@ -68,7 +76,7 @@ const buildItemsForModal = (items) => {
               </div>
               <div class="d-flex flex-column">
                 <span id="likes${item.id}" class="h3">
-                <button onclick="addLike()" class="likesButton">
+                <button onclick="addLike(${index})" class="likesButton">
                   <i class="far fa-heart text-danger"></i>
                 </button>
                 <span class="h3 text-white"> ${item.likes}</span>
