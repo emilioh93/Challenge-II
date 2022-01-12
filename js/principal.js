@@ -6,6 +6,11 @@ function Image(id, url, likes, date) {
   this.date = date;
 }
 
+const storiesModalsCarousel = document.getElementById("storiesModalsContainer");
+const formAddImage = document.getElementById("formAddImage");
+let userLoggedIn = false;
+let localStorageImages = JSON.parse(localStorage.getItem("images"));
+
 let images = [
   {
     date: "12/1/2022",
@@ -27,8 +32,21 @@ let images = [
   },
 ];
 
-const formAddImage = document.getElementById("formAddImage");
-let localStorageImages = JSON.parse(localStorage.getItem("images"));
+const carouselEnded = (doThis) => {
+  storiesModalsCarousel.addEventListener("slid.bs.carousel", function (e) {
+    if (e.direction === "right" && e.to === images.length - 1) {
+      console.log(doThis);
+    }
+  });
+};
+
+// Detectar logueo de usuario
+if (localStorage.getItem("user")) {
+  userLoggedIn = true;
+  carouselEnded("Cerrar modal");
+} else {
+  carouselEnded("Redirigir a register");
+}
 
 // Función para generar likes de manera aleatoria
 const getRandomLikes = (min, max) => {
