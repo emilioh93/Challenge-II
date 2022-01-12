@@ -32,20 +32,24 @@ let images = [
   },
 ];
 
-const carouselEnded = (doThis) => {
-  storiesModalsCarousel.addEventListener("slid.bs.carousel", function (e) {
-    if (e.direction === "right" && e.to === images.length - 1) {
-      console.log(doThis);
-    }
-  });
-};
-
 // Detectar logueo de usuario
 if (localStorage.getItem("user")) {
   userLoggedIn = true;
-  carouselEnded("Cerrar modal");
+  storiesModalsCarousel.addEventListener("slid.bs.carousel", function (e) {
+    if (e.to === images.length - 1) {
+      setTimeout(function () {
+        $("#storiesModalsContainer").modal("hide");
+      }, 3000);
+    }
+  });
 } else {
-  carouselEnded("Redirigir a register");
+  storiesModalsCarousel.addEventListener("slid.bs.carousel", function (e) {
+    if (e.to === images.length - 1) {
+      setTimeout(function () {
+        location.href = "./register.html";
+      }, 3000);
+    }
+  });
 }
 
 // Función para generar likes de manera aleatoria
