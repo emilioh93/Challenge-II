@@ -23,7 +23,7 @@ const buildItemsForModal = (items) => {
 
     // Se crea el elemento active para el primer objeto
     document.getElementById("carouselChild").innerHTML += `
-      <div class="carousel-item active" data-bs-interval="2000">
+      <div class="carousel-item active" data-bs-interval="3000">
         <div class="card w-100 h-100">
           <img src=${firstItem.url} class="w-100 d-block" alt="Historia de Social Rolling">
           <div class="card-body bg-dark">
@@ -56,7 +56,7 @@ const buildItemsForModal = (items) => {
     // Se crean el resto de los elementos sin el active
     items.forEach((item) => {
         document.getElementById("carouselChild").innerHTML += `
-          <div class="carousel-item" data-bs-interval="2000">
+          <div class="carousel-item" data-bs-interval="3000">
             <div class="card w-100 h-100">
               <img src=${item.url} class="w-100 d-block" alt="Historia de Social Rolling">
             <div class="card-body bg-dark">
