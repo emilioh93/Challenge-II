@@ -35,6 +35,8 @@ let images = [
 // Detectar logueo de usuario
 if (localStorage.getItem("user")) {
   userLoggedIn = true;
+
+  // Cerrar modal al finalizar carousel
   storiesModalsCarousel.addEventListener("slid.bs.carousel", function (e) {
     if (e.to === images.length - 1) {
       setTimeout(function () {
