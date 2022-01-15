@@ -150,11 +150,14 @@ const deleteImage = (id) => {
 };
 
 // Incrementar likes
+// FIXME: Al hacer like se duplica el elemento likeado
 const addLike = (index) => {
   if (localStorageImages != null) {
+    document.getElementById("likes").innerHTML =
+      localStorageImages[index].likes + 1;
     localStorageImages[index].likes = localStorageImages[index].likes + 1;
-    console.log("🚀 ~ localStorageImages", localStorageImages);
-    localStorage.setItem("images", JSON.stringify(localStorageImages));
+    const preventDuplicates = [...new Set(localStorageImages)];
+    localStorage.setItem("images", JSON.stringify(preventDuplicates));
   }
 };
 

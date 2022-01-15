@@ -42,7 +42,9 @@ const buildItemsForModal = (items) => {
                   <button onclick="addLike(${0})" class="likesButton">
                       <i class="far fa-heart text-danger"></i>
                   </button>
-                  <span class="h3 text-white"> ${firstItem.likes}</span>
+                  <span id="likes" class="h3 text-white"> ${
+                    firstItem.likes
+                  }</span>
                 </span>
               </div>
             </div>
@@ -78,7 +80,7 @@ const buildItemsForModal = (items) => {
                 <button onclick="addLike(${index})" class="likesButton">
                   <i class="far fa-heart text-danger"></i>
                 </button>
-                <span class="h3 text-white"> ${item.likes}</span>
+                <span id="likes" class="h3 text-white"> ${item.likes}</span>
                 </span>
               </div>
               </div>
@@ -96,8 +98,9 @@ const buildItemsForModal = (items) => {
 
   // Reordenar tabla de Local Storage
   images.unshift(firstItem);
-  images.pop();
-  localStorage.setItem("images", JSON.stringify(images));
+  const newImages = [...new Set(images)];
+  console.log("🚀 ~ newImages", newImages);
+  localStorage.setItem("images", JSON.stringify(newImages));
 };
 
 const buildPost = (item, elementId) => {
