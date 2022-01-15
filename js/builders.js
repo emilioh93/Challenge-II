@@ -1,5 +1,5 @@
 const buildStory = (item, elementId) => {
-    document.getElementById(elementId).innerHTML += `
+  document.getElementById(elementId).innerHTML += `
       <button id="story${item.id}" class="story" data-bs-toggle="modal"
       data-bs-target="#storiesModalsContainer" onclick="generateCarouselItems(${item.id})">
         <div class="profile">
@@ -10,20 +10,19 @@ const buildStory = (item, elementId) => {
 };
 
 const buildItemsForModal = (items) => {
-    // Al abrir el modal, deben eliminarse los elementos anteriormente creados para evitar duplicados
-    const carouselInner = document.getElementById("carouselInner");
-    const carouselChild = document.getElementById("carouselChild");
+  // Al abrir el modal, deben eliminarse los elementos anteriormente creados para evitar duplicados
+  const carouselInner = document.getElementById("carouselInner");
+  const carouselChild = document.getElementById("carouselChild");
 
-    carouselInner.removeChild(carouselChild);
-    const firstItem = items.shift();
-    console.log("🚀 ~ firstItem", firstItem);
+  carouselInner.removeChild(carouselChild);
+  const firstItem = items.shift();
 
-    document.getElementById("carouselInner").innerHTML += `
+  document.getElementById("carouselInner").innerHTML += `
     <div id="carouselChild"></div>
   `;
 
-    // Se crea el elemento active para el primer objeto
-    document.getElementById("carouselChild").innerHTML += `
+  // Se crea el elemento active para el primer objeto
+  document.getElementById("carouselChild").innerHTML += `
       <div class="carousel-item active" data-bs-interval="3000">
         <div class="card w-100 h-100">
           <img src=${
@@ -54,16 +53,16 @@ const buildItemsForModal = (items) => {
         </div>
       </div>
     `;
-    if (userLoggedIn === false) {
-        console.log("Se ejecutó");
-        document.getElementById(`deleteButton${firstItem.id}`).style.visibility =
-            "hidden";
-    }
+  if (userLoggedIn === false) {
+    console.log("Se ejecutó");
+    document.getElementById(`deleteButton${firstItem.id}`).style.visibility =
+      "hidden";
+  }
 
-    // Se crean el resto de los elementos sin el active
-    items.forEach((item) => {
-        const index = items.indexOf(item) + 1;
-        document.getElementById("carouselChild").innerHTML += `
+  // Se crean el resto de los elementos sin el active
+  items.forEach((item) => {
+    const index = items.indexOf(item) + 1;
+    document.getElementById("carouselChild").innerHTML += `
           <div class="carousel-item" data-bs-interval="3000">
             <div class="card w-100 h-100">
               <img src=${item.url} class="w-100 d-block" alt="Historia de Social Rolling">
@@ -88,16 +87,21 @@ const buildItemsForModal = (items) => {
             </div>
           </div>
           `;
-        if (userLoggedIn === false) {
-            console.log("Se ejecutó");
-            document.getElementById(`deleteButton${item.id}`).style.visibility =
-                "hidden";
-        }
-    });
+    if (userLoggedIn === false) {
+      console.log("Se ejecutó");
+      document.getElementById(`deleteButton${item.id}`).style.visibility =
+        "hidden";
+    }
+  });
+
+  // Reordenar tabla de Local Storage
+  images.unshift(firstItem);
+  images.pop();
+  localStorage.setItem("images", JSON.stringify(images));
 };
 
 const buildPost = (item, elementId) => {
-    document.getElementById(elementId).innerHTML += `
+  document.getElementById(elementId).innerHTML += `
     <div id="post${item.id}" class="col-md-4 col-sm-12 mb-4">
       <div class="card roundBorder w-100 postAdded">
         <div id="postImg">

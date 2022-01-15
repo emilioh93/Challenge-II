@@ -153,6 +153,7 @@ const deleteImage = (id) => {
 const addLike = (index) => {
   if (localStorageImages != null) {
     localStorageImages[index].likes = localStorageImages[index].likes + 1;
+    console.log("🚀 ~ localStorageImages", localStorageImages);
     localStorage.setItem("images", JSON.stringify(localStorageImages));
   }
 };
