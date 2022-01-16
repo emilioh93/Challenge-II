@@ -68,12 +68,12 @@ const buildItemsForModal = (items) => {
     const index = items.indexOf(item);
     document.getElementById("carouselChild").innerHTML += `
           <div id="carouselItem${index}" class="carousel-item" data-bs-interval="3000">
-            <div class="card w-100 h-100">
+            <div id="cardStory" class="card w-100 h-100">
               <div id="progressBarContainer">
                 <div id="progressBar"></div>
               </div>
               <img src=${item.url} class="w-100 d-block" alt="Historia de Social Rolling">
-            <div class="card-body bg-dark">
+            <div id="cardStoryBody" class="card-body bg-dark">
             <div class="d-flex justify-content-between">
               <div id="deleteButtonContainer" class="h3">
                 <button id="deleteButton${item.id}" onclick="deleteImage(${item.id})" class="likesButton">
@@ -95,7 +95,6 @@ const buildItemsForModal = (items) => {
           </div>
           `;
     if (userLoggedIn === false) {
-      console.log("Se ejecutó");
       document.getElementById(`deleteButton${item.id}`).style.visibility =
         "hidden";
     }
