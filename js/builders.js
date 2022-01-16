@@ -1,34 +1,24 @@
 const buildUserModal = () => {
-  const userModalDialog = document.getElementById("userModalDialog");
+  const formAddImage = document.getElementById("formAddImage");
   if (userLoggedIn === false) {
     console.log(userLoggedIn);
-    userModalDialog.innerHTML = `
-    <div class="modal-content bg-dark text-white">
-      <div class="modal-header">
-          <h5 class="modal-title" id="userModalLabel">Publish new image</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
+    formAddImage.innerHTML = `
       <div class="modal-body">
-          <div class="mb-3">
-              <p>Debes estar logueado para publicar imágenes</p>
-          </div>
+        <div class="mb-3">
+          <p>
+              Debes estar logueado para publicar imágenes.
+          </p>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
           Close
         </button>
-        <a href="./login.html" type="submit" class="btn btn-primary">Loguearse</a>
+        <a href=".login.html" type="button" class="btn btn-primary">Loguearse</a>
       </div>
-    </div>
     `;
   } else {
-    userModalDialog.innerHTML = `
-      <div class="modal-content bg-dark text-white">
-        <div class="modal-header">
-            <h5 class="modal-title" id="userModalLabel">Publish new image</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <form id="formAddImage">
+    formAddImage.innerHTML = `
             <div class="modal-body">
                 <div class="mb-3">
                     <label for="nputURL" class="form-label">Image URL</label>
@@ -44,8 +34,6 @@ const buildUserModal = () => {
                 </button>
                 <button type="button" class="btn btn-primary" onclick="publishNewImage()">Publish</button>
             </div>
-        </form>
-      </div>     
     `;
   }
 };

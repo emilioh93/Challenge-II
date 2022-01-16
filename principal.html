@@ -29,7 +29,15 @@
         </section>
         <!-- Modal Agregar Publicación -->
         <div id="userModal" class="modal fade" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
-            <div id="userModalDialog" class="modal-dialog modal-dialog-centered"></div>
+            <div id="userModalDialog" class="modal-dialog modal-dialog-centered">
+                <div class="modal-content bg-dark text-white">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="userModalLabel">Publish new image</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form id="formAddImage"></form>
+                </div>
+            </div>
         </div>
         <!-- Modal de historias -->
         <div id="storiesModalsContainer" class="modal" tabindex="-1">

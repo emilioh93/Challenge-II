@@ -96,6 +96,8 @@ const publishNewImage = () => {
       text: "Alcanzaste el número máximos de publicaciones posibles",
       footer: "Elimina alguna publicación si quieres agregar una nueva.",
     });
+    formAddImage.reset();
+    $("#userModal").modal("hide");
   } else {
     const url = document.getElementById("inputURLImage").value;
     const likes = getRandomLikes(0, 20);
@@ -106,7 +108,6 @@ const publishNewImage = () => {
 
     const newImg = new Image(id, url, parseInt(likes), currentDate);
     addImage(newImg);
-    // FIXME: A partir de acá no se ejecuta
     formAddImage.reset();
     Swal.fire(
       "Imagen publicada",
