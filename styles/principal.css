@@ -105,12 +105,14 @@ body {
     align-items: center;
 }
 
-.carousel-control-next-icon {
-    background: transparent
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+    background: transparent;
 }
 
-.carousel-control-prev-icon {
-    background: transparent
+.carousel-control-next,
+.carousel-control-prev {
+    height: 90%
 }
 
 @media (max-width: 767.98px) {
