@@ -64,12 +64,14 @@ const buildItemsForModal = (items) => {
     <div id="carouselChild"></div>
   `;
 
-  // Se crean el resto de los elementos sin el active
   newImages.forEach((item) => {
     const index = items.indexOf(item);
     document.getElementById("carouselChild").innerHTML += `
           <div id="carouselItem${index}" class="carousel-item" data-bs-interval="3000">
             <div class="card w-100 h-100">
+              <div id="progressBarContainer">
+                <div id="progressBar"></div>
+              </div>
               <img src=${item.url} class="w-100 d-block" alt="Historia de Social Rolling">
             <div class="card-body bg-dark">
             <div class="d-flex justify-content-between">
