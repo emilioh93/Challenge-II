@@ -88,8 +88,7 @@ const addImage = (image) => {
 };
 
 // Evento disparado al presionar botón Publicar
-formAddImage.addEventListener("submit", function (e) {
-  e.preventDefault();
+const publishNewImage = () => {
   if (localStorageImages.length >= 6) {
     Swal.fire({
       icon: "error",
@@ -107,6 +106,7 @@ formAddImage.addEventListener("submit", function (e) {
 
     const newImg = new Image(id, url, parseInt(likes), currentDate);
     addImage(newImg);
+    // FIXME: A partir de acá no se ejecuta
     formAddImage.reset();
     Swal.fire(
       "Imagen publicada",
@@ -115,7 +115,7 @@ formAddImage.addEventListener("submit", function (e) {
     );
     $("#userModal").modal("hide");
   }
-});
+};
 
 // Eliminar imagen del Local Storage
 const deleteImage = (id) => {
@@ -145,6 +145,9 @@ const deleteImage = (id) => {
       const childNodeStory = document.getElementById(`story${id}`);
       parentNodePosts.removeChild(childNodePost);
       parentNodeStories.removeChild(childNodeStory);
+      setTimeout(() => {
+        location.reload();
+      }, 2000);
     }
   });
 };
@@ -162,7 +165,9 @@ const addLike = (index) => {
   localStorage.setItem("images", JSON.stringify(preventDuplicates));
 
   // Mostrar alert
-  document.getElementById("updateChanges").classList.replace("d-none","d-block")
+  document
+    .getElementById("updateChanges")
+    .classList.replace("d-none", "d-block");
 };
 
 // Generar imágenes para el carrusel
@@ -185,3 +190,5 @@ window.onload = () => {
     localStorageImages = images;
   }
 };
+
+buildUserModal();

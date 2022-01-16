@@ -1,3 +1,55 @@
+const buildUserModal = () => {
+  const userModalDialog = document.getElementById("userModalDialog");
+  if (userLoggedIn === false) {
+    console.log(userLoggedIn);
+    userModalDialog.innerHTML = `
+    <div class="modal-content bg-dark text-white">
+      <div class="modal-header">
+          <h5 class="modal-title" id="userModalLabel">Publish new image</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <div class="mb-3">
+              <p>Debes estar logueado para publicar imágenes</p>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <a href="./login.html" type="submit" class="btn btn-primary">Loguearse</a>
+      </div>
+    </div>
+    `;
+  } else {
+    userModalDialog.innerHTML = `
+      <div class="modal-content bg-dark text-white">
+        <div class="modal-header">
+            <h5 class="modal-title" id="userModalLabel">Publish new image</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form id="formAddImage">
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="nputURL" class="form-label">Image URL</label>
+                    <input type="url" class="form-control" id="inputURLImage" aria-describedby="URLImageHelp" required placeholder="http://images.example.com" />
+                    <div id="URLImageHelp" class="form-text">
+                        Insert your image URL here.
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                  Close
+                </button>
+                <button type="button" class="btn btn-primary" onclick="publishNewImage()">Publish</button>
+            </div>
+        </form>
+      </div>     
+    `;
+  }
+};
+
 const buildStory = (item, elementId) => {
   document.getElementById(elementId).innerHTML += `
       <button id="story${item.id}" class="story" data-bs-toggle="modal"
