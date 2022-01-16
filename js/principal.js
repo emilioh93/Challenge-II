@@ -150,18 +150,13 @@ const deleteImage = (id) => {
 };
 
 // Incrementar likes
-// FIXME: No likes en vivo para el siguiente elemento
 // FIXME: Último like se aplica al primer elemento
 const addLike = (index) => {
-  // El index es correcto
-  if (localStorageImages != null) {
-    document.getElementById("likes").innerHTML =
-      localStorageImages[index].likes + 1;
-    localStorageImages[index].likes = localStorageImages[index].likes + 1;
-    console.log("🚀 ~ localStorageImages[index]", localStorageImages[index]);
-    const preventDuplicates = [...new Set(localStorageImages)];
-    localStorage.setItem("images", JSON.stringify(preventDuplicates));
-  }
+  const preventDuplicates = [...new Set(localStorageImages)];
+  document.getElementById(`likes${index}`).innerHTML =
+    localStorageImages[index + 1].likes + 1;
+  preventDuplicates[index + 1].likes = preventDuplicates[index + 1].likes + 1;
+  localStorage.setItem("images", JSON.stringify(preventDuplicates));
 };
 
 // Generar imágenes para el carrusel

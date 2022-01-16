@@ -43,7 +43,7 @@ const buildItemsForModal = (items) => {
                 <button onclick="addLike(${index})" class="likesButton">
                   <i class="far fa-heart text-danger"></i>
                 </button>
-                <span id="likes" class="h3 text-white"> ${item.likes}</span>
+                <span id="likes${index}" class="h3 text-white"> ${item.likes}</span>
                 </span>
               </div>
               </div>
