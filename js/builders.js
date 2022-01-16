@@ -16,56 +16,19 @@ const buildItemsForModal = (items) => {
 
   carouselInner.removeChild(carouselChild);
   const firstItem = items.shift();
+  images.unshift(firstItem);
+  const newImages = [...new Set(images)];
+  localStorage.setItem("images", JSON.stringify(newImages));
 
   document.getElementById("carouselInner").innerHTML += `
     <div id="carouselChild"></div>
   `;
 
-  // Se crea el elemento active para el primer objeto
-  document.getElementById("carouselChild").innerHTML += `
-      <div class="carousel-item active" data-bs-interval="3000">
-        <div class="card w-100 h-100">
-          <img src=${
-            firstItem.url
-          } class="w-100 d-block" alt="Historia de Social Rolling">
-          <div class="card-body bg-dark">
-            <div class="d-flex justify-content-between">
-              <div id="deleteButtonContainer" class="h3">
-                  <button id="deleteButton${
-                    firstItem.id
-                  }" onclick="deleteImage(${firstItem.id})" class="likesButton">
-                      <i class="fas fa-minus-circle text-warning"></i>
-                  </button>
-              </div>
-              <div class="d-flex flex-column">
-                <span id="likes${firstItem.id}" class="h3">
-                  <button onclick="addLike(${0})" class="likesButton">
-                      <i class="far fa-heart text-danger"></i>
-                  </button>
-                  <span id="likes" class="h3 text-white"> ${
-                    firstItem.likes
-                  }</span>
-                </span>
-              </div>
-            </div>
-            <p class="card-text text-end"><small class="text-muted">${
-              firstItem.date
-            }</small></p>
-          </div>
-        </div>
-      </div>
-    `;
-  if (userLoggedIn === false) {
-    console.log("Se ejecutó");
-    document.getElementById(`deleteButton${firstItem.id}`).style.visibility =
-      "hidden";
-  }
-
   // Se crean el resto de los elementos sin el active
-  items.forEach((item) => {
-    const index = items.indexOf(item) + 1;
+  newImages.forEach((item) => {
+    const index = items.indexOf(item);
     document.getElementById("carouselChild").innerHTML += `
-          <div class="carousel-item" data-bs-interval="3000">
+          <div id="carouselItem${index}" class="carousel-item" data-bs-interval="3000">
             <div class="card w-100 h-100">
               <img src=${item.url} class="w-100 d-block" alt="Historia de Social Rolling">
             <div class="card-body bg-dark">
@@ -95,12 +58,7 @@ const buildItemsForModal = (items) => {
         "hidden";
     }
   });
-
-  // Reordenar tabla de Local Storage
-  images.unshift(firstItem);
-  const newImages = [...new Set(images)];
-  console.log("🚀 ~ newImages", newImages);
-  localStorage.setItem("images", JSON.stringify(newImages));
+  document.getElementById("carouselItem-1").className += " active";
 };
 
 const buildPost = (item, elementId) => {

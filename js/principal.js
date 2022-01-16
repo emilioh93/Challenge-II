@@ -150,12 +150,15 @@ const deleteImage = (id) => {
 };
 
 // Incrementar likes
-// FIXME: Al hacer like se duplica el elemento likeado
+// FIXME: No likes en vivo para el siguiente elemento
+// FIXME: Último like se aplica al primer elemento
 const addLike = (index) => {
+  // El index es correcto
   if (localStorageImages != null) {
     document.getElementById("likes").innerHTML =
       localStorageImages[index].likes + 1;
     localStorageImages[index].likes = localStorageImages[index].likes + 1;
+    console.log("🚀 ~ localStorageImages[index]", localStorageImages[index]);
     const preventDuplicates = [...new Set(localStorageImages)];
     localStorage.setItem("images", JSON.stringify(preventDuplicates));
   }
