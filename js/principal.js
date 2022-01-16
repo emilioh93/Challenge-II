@@ -38,7 +38,7 @@ if (localStorage.getItem("user")) {
 
   // Cerrar modal al finalizar carousel
   storiesModalsCarousel.addEventListener("slid.bs.carousel", function (e) {
-    if (e.to === images.length - 1) {
+    if (e.to === images.length - 2) {
       setTimeout(function () {
         $("#storiesModalsContainer").modal("hide");
       }, 3000);
@@ -46,7 +46,7 @@ if (localStorage.getItem("user")) {
   });
 } else {
   storiesModalsCarousel.addEventListener("slid.bs.carousel", function (e) {
-    if (e.to === images.length - 1) {
+    if (e.to === images.length - 2) {
       setTimeout(function () {
         location.href = "./register.html";
       }, 3000);
@@ -64,9 +64,9 @@ const updateImages = () => {
   const idStoriesContainer = "addedStoriesContainer";
   const idPostsContainer = "postsContainer";
 
-  localStorageImages.forEach((item) => {
+  localStorageImages.forEach((item, index) => {
     buildStory(item, idStoriesContainer);
-    buildPost(item, idPostsContainer);
+    buildPost(item, idPostsContainer, index);
   });
 };
 
@@ -155,11 +155,14 @@ const addLike = (index) => {
 
   // Imprimir en HTML
   document.getElementById(`likes${index}`).innerHTML =
-  preventDuplicates[index + 1].likes + 1;
+    preventDuplicates[index + 1].likes + 1;
 
   // Sumar al local storage
   preventDuplicates[index + 1].likes = preventDuplicates[index + 1].likes + 1;
   localStorage.setItem("images", JSON.stringify(preventDuplicates));
+
+  // Mostrar alert
+  document.getElementById("updateChanges").classList.replace("d-none","d-block")
 };
 
 // Generar imágenes para el carrusel

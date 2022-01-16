@@ -61,7 +61,7 @@ const buildItemsForModal = (items) => {
   document.getElementById("carouselItem-1").className += " active";
 };
 
-const buildPost = (item, elementId) => {
+const buildPost = (item, elementId, index) => {
   document.getElementById(elementId).innerHTML += `
     <div id="post${item.id}" class="col-md-4 col-sm-12 mb-4">
       <div class="card roundBorder w-100 postAdded">
@@ -71,7 +71,7 @@ const buildPost = (item, elementId) => {
         <div class="card-footer bg-dark text-white">
           <div id="postFooter" class="d-flex justify-content-between">
             <span>${item.date}</span>
-            <span><i class="far fa-heart"></i> ${item.likes}</span>
+            <span id="likes${index}"><i class="far fa-heart"></i> ${item.likes}</span>
           </div>
         </div>
       </div>
