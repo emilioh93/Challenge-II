@@ -14,7 +14,7 @@ const buildUserModal = () => {
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
           Close
         </button>
-        <a href=".login.html" type="button" class="btn btn-primary">Loguearse</a>
+        <a href="./login.html" type="button" class="btn btn-primary">Loguearse</a>
       </div>
     `;
   } else {
