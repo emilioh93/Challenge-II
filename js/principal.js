@@ -41,6 +41,7 @@ if (localStorage.getItem("user")) {
     if (e.to === images.length - 2) {
       setTimeout(function () {
         $("#storiesModalsContainer").modal("hide");
+        location.reload();
       }, 3000);
     }
   });
