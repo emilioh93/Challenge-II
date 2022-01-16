@@ -189,6 +189,7 @@ window.onload = () => {
   } else {
     localStorage.setItem("images", JSON.stringify(images));
     localStorageImages = images;
+    updateImages();
   }
 };
 
