@@ -134,7 +134,7 @@ const deleteImage = (id) => {
     confirmButtonText: "Eliminar",
   }).then((result) => {
     if (result.isConfirmed) {
-      const newLocalStorage = localStorageImages.filter((e) => e.id !== id);
+      const newLocalStorage = [...new Set(localStorageImages.filter((e) => e.id !== id))];
       localStorage.setItem("images", JSON.stringify(newLocalStorage));
       Swal.fire(
         "Publicación eliminada",
