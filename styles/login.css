@@ -1,9 +1,3 @@
-:root {
-    --red: #ca2c34;
-    --bg-black: rgb(39, 38, 38);
-    --grey: rgb(53, 52, 52);
-}
-
 body {
     background: var(--bg-black);
     color: whitesmoke;

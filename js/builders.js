@@ -31,7 +31,7 @@ const buildUserModal = () => {
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                   Cerrar
                 </button>
-                <button type="button" class="btn btn-primary" onclick="publishNewImage()">Publicar</button>
+                <button type="button" class="btn btn-danger" onclick="publishNewImage()">Publicar</button>
             </div>
     `;
   }
@@ -108,7 +108,7 @@ const buildPost = (item, elementId, index) => {
         <div id="postImg">
           <img src=${item.url} class="card-img-top bg-dark" alt="Post de Social Rolling" />
         </div>
-        <div class="card-footer bg-dark text-white">
+        <div id="postFooterContainer" class="card-footer bg-dark text-white">
           <div id="postFooter" class="d-flex justify-content-between">
             <span>${item.date}</span>
             <span id="likes${index}"><i class="far fa-heart"></i> ${item.likes}</span>
