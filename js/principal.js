@@ -116,6 +116,9 @@ const publishNewImage = () => {
       "success"
     );
     $("#userModal").modal("hide");
+    setTimeout(() => {
+      location.reload();
+    }, 2000);
   }
 };
 

@@ -21,18 +21,18 @@ const buildUserModal = () => {
     formAddImage.innerHTML = `
             <div class="modal-body">
                 <div class="mb-3">
-                    <label for="nputURL" class="form-label">Image URL</label>
+                    <label for="nputURL" class="form-label">Imagen URL</label>
                     <input type="url" class="form-control" id="inputURLImage" aria-describedby="URLImageHelp" required placeholder="http://images.example.com" />
                     <div id="URLImageHelp" class="form-text">
-                        Insert your image URL here.
+                        Inserta el URL de tu imagen aquí.
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                  Close
+                  Cerrar
                 </button>
-                <button type="button" class="btn btn-primary" onclick="publishNewImage()">Publish</button>
+                <button type="button" class="btn btn-primary" onclick="publishNewImage()">Publicar</button>
             </div>
     `;
   }
