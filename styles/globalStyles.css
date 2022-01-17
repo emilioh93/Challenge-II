@@ -17,3 +17,9 @@ body {
     background: var(--bg-black);
     color: whitesmoke;
 }
+
+footer {
+    text-align: center;
+    margin-top: 7rem;
+    padding: 2rem;
+}
