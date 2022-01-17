@@ -42,20 +42,13 @@ const buildStory = (item, elementId) => {
       <button id="story${item.id}" class="story" data-bs-toggle="modal"
       data-bs-target="#storiesModalsContainer" onclick="generateCarouselItems(${item.id})">
         <div class="profile">
-          <img src=${item.url} alt="Historia Social Rolling" />
+          <img onerror="this.onerror=null;this.src='./img/imagen-no-disponible.png';" src=${item.url} alt="Historia Social Rolling" />
         </div>
       </button>
     `;
 };
 
 const buildItemsForModal = (items) => {
-  $(document).ready(function () {
-    $("img").each(function () {
-      if ($(this)[0].naturalHeight == 0) {
-        $(this).attr("src", "img/imagen-no-disponible.png");
-      }
-    });
-  });
   // Al abrir el modal, deben eliminarse los elementos anteriormente creados para evitar duplicados
   const carouselInner = document.getElementById("carouselInner");
   const carouselChild = document.getElementById("carouselChild");
@@ -78,7 +71,7 @@ const buildItemsForModal = (items) => {
               <div id="progressBarContainer">
                 <div id="progressBar"></div>
               </div>
-              <img src=${item.url} class="w-100 d-block" alt="Historia de Social Rolling">
+              <img onerror="this.onerror=null;this.src='./img/imagen-no-disponible.png';" src=${item.url} class="w-100 d-block" alt="Historia de Social Rolling">
             <div id="cardStoryBody" class="card-body bg-dark">
             <div class="d-flex justify-content-between">
               <div id="deleteButtonContainer" class="h3">
@@ -113,7 +106,7 @@ const buildPost = (item, elementId, index) => {
     <div id="post${item.id}" class="col-md-4 col-sm-12 mb-4">
       <div class="card roundBorder w-100 postAdded">
         <div id="postImg">
-          <img src=${item.url} class="card-img-top bg-dark" alt="Post de Social Rolling" />
+          <img onerror="this.onerror=null;this.src='./img/imagen-no-disponible.png';" src=${item.url} class="card-img-top bg-dark" alt="Post de Social Rolling" />
         </div>
         <div id="postFooterContainer" class="card-footer bg-dark text-white">
           <div id="postFooter" class="d-flex justify-content-between">

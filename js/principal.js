@@ -187,13 +187,6 @@ const generateCarouselItems = (id) => {
 
 // Renderizar Local Storage al cargar página y cargar imágenes adicionales
 window.onload = () => {
-  $(document).ready(function () {
-    $("img").each(function () {
-      if ($(this)[0].naturalHeight == 0) {
-        $(this).attr("src", "img/imagen-no-disponible.png");
-      }
-    });
-  });
   if (localStorageImages) {
     images = localStorageImages;
     updateImages();
