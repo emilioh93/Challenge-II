@@ -1,7 +1,6 @@
 const buildUserModal = () => {
   const formAddImage = document.getElementById("formAddImage");
   if (userLoggedIn === false) {
-    console.log(userLoggedIn);
     formAddImage.innerHTML = `
       <div class="modal-body">
         <div class="mb-3">
