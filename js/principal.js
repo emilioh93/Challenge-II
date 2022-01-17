@@ -104,10 +104,10 @@ const publishNewImage = () => {
     const likes = getRandomLikes(0, 20);
     moment.locale("es");
     const currentDate = moment().format("l");
-
     const id = Date.now();
 
     const newImg = new Image(id, url, parseInt(likes), currentDate);
+
     addImage(newImg);
     formAddImage.reset();
     Swal.fire(
@@ -187,6 +187,13 @@ const generateCarouselItems = (id) => {
 
 // Renderizar Local Storage al cargar página y cargar imágenes adicionales
 window.onload = () => {
+  $(document).ready(function () {
+    $("img").each(function () {
+      if ($(this)[0].naturalHeight == 0) {
+        $(this).attr("src", "img/imagen-no-disponible.png");
+      }
+    });
+  });
   if (localStorageImages) {
     images = localStorageImages;
     updateImages();

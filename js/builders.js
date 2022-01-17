@@ -49,6 +49,13 @@ const buildStory = (item, elementId) => {
 };
 
 const buildItemsForModal = (items) => {
+  $(document).ready(function () {
+    $("img").each(function () {
+      if ($(this)[0].naturalHeight == 0) {
+        $(this).attr("src", "img/imagen-no-disponible.png");
+      }
+    });
+  });
   // Al abrir el modal, deben eliminarse los elementos anteriormente creados para evitar duplicados
   const carouselInner = document.getElementById("carouselInner");
   const carouselChild = document.getElementById("carouselChild");
