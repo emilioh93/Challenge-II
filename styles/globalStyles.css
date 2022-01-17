@@ -1,8 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-button {
-    text-transform: uppercase;
+:root {
+    --red: #ca2c34;
+    --bg-black: rgb(39, 38, 38);
+    --grey: rgb(53, 52, 52);
 }
 
 * {
     font-family: 'Roboto', sans-serif;
+}
+
+button {
+    text-transform: uppercase;
+}
+
+body {
+    background: var(--bg-black);
+    color: whitesmoke;
 }

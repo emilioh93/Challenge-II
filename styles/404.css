@@ -1,0 +1,9 @@
+#img404 {
+    width: 40%;
+}
+
+@media (max-width: 767.98px) {
+    #img404 {
+        width: 100%;
+    }
+}

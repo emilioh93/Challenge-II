@@ -14,7 +14,7 @@ const buildUserModal = () => {
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
           Close
         </button>
-        <a href="./login.html" type="button" class="btn btn-primary">Loguearse</a>
+        <a href="./login.html" type="button" class="btn btn-primary">LOGUEARSE</a>
       </div>
     `;
   } else {
@@ -67,7 +67,7 @@ const buildItemsForModal = (items) => {
   newImages.forEach((item) => {
     const index = items.indexOf(item);
     document.getElementById("carouselChild").innerHTML += `
-          <div id="carouselItem${index}" class="carousel-item" data-bs-interval="30000000">
+          <div id="carouselItem${index}" class="carousel-item" data-bs-interval="3000">
             <div id="cardStory" class="card w-100 h-100">
               <div id="progressBarContainer">
                 <div id="progressBar"></div>
