@@ -19,6 +19,14 @@ body {
     color: whitesmoke;
 }
 
+.swal2-styled {
+    background: var(--red)!important;
+}
+
+.swal2-cancel {
+    background: grey!important;
+}
+
 footer {
     text-align: center;
     margin-top: 7rem;
