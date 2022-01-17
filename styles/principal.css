@@ -116,6 +116,7 @@ body {
     #storiesContainer {
         justify-content: flex-start;
         border: none;
+        margin-top: 0rem!important;
     }
     .carousel,
     .carousel-item,
