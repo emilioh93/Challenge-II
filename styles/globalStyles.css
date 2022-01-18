@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 :root {
-    --red: #ca2c34;
+    --red: #ea2417;
     --bg-black: #1b1f22;
     --grey: rgb(52, 53, 53);
     --bg-white: whitesmoke;
@@ -15,7 +15,9 @@ button {
 }
 
 body {
-    background: var(--bg-black);
+    background: url(../img/bgHorizontal.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
     color: whitesmoke;
 }
 
@@ -31,4 +33,10 @@ footer {
     text-align: center;
     margin-top: 7rem;
     padding: 2rem;
+}
+
+@media (max-width: 767.98px) {
+    body {
+        background: url(../img/bgVertical.svg);
+    }
 }
