@@ -21,6 +21,10 @@ body {
     color: whitesmoke;
 }
 
+.btn-danger {
+    background: var(--red)
+}
+
 .swal2-styled {
     background: var(--red)!important;
 }
