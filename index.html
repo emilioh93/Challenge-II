@@ -10,19 +10,52 @@
     <title>Social Rolling</title>
     <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
-    <link rel="stylesheet" href="./styles/404.css" />
+    <link rel="stylesheet" href="./styles/login.css" />
     <link rel="stylesheet" href="./styles/globalStyles.css" />
 </head>
 
 <body>
-    <main class="text-center mt-3">
-        <h1>Error 404</h1>
-        <h4>Lo sentimos, la página que está buscando no existe</h4>
-        <img id="img404" src="./img/404.png" alt="Error 404" />
-        <div>
-            <a href="./principal.html" class="btn btn-danger">VOLVER AL INICIO</a>
-        </div>
+    <main>
+        <section class="container">
+            <h1 class="text-center mt-5">Social Rolling</h1>
+            <div class="d-flex justify-content-center mt-5">
+                <form id="form" class="w-50">
+                    <div id="emailContainer" class="mb-3">
+                        <label for="inputEmail" class="form-label">Dirección de correo electrónico</label
+              >
+              <input
+                name="email"
+                type="email"
+                class="form-control"
+                id="inputEmail"
+                aria-describedby="emailHelp"
+                required
+              />
+              <p class="helpMessage form-text">
+                Ingresa una dirección correcta.
+              </p>
+            </div>
+            <div id="passwordContainer" class="mb-3">
+              <label for="inputPassword" class="form-label">Contraseña</label>
+                        <input name="password" type="password" class="form-control" id="inputPassword" required />
+                        <div class="helpMessage form-text">
+                            La contraseña debe contener hasta 8 caracteres, números y al menos uno de los siguientes caracteres especiales: # & * %
+                        </div>
+                    </div>
+                    <div id="alertMessage" class="alertMessage alert alert-danger" role="alert">
+                        Please correct all errors before logging in.
+                    </div>
+                    <button type="submit" class="btn btn-danger w-100">Login</button>
+                    <div class="text-center mt-3">
+                        <a href="./principal.html">Continuar como invitado</a>
+                    </div>
+                </form>
+            </div>
+        </section>
     </main>
+    <footer id="footer"></footer>
+    <script src="./js/login.js"></script>
+    <script src="./js/app.js"></script>
 </body>
 
 </html>
