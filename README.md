@@ -4,9 +4,8 @@ Se creó una web que representa una red social responsive utilizando Javascript 
 
 Se desarrollaron las siguientes secciones:
 - Pantalla de Login
-- Pantalla principal para Usuario Logueado
-- Modal o pantalla de Historias para usuario Logueado
-- Modal o pantalla de Historias para Usuario Invitado
+- Pantalla principal
+- Modal o pantalla de Historias
 - Pantalla de invitación a registrarse para usuarios no logueados
 - Pantalla 404
  
@@ -34,6 +33,7 @@ CSS3 Framework:
 
 ### Página principal
 [x] Acceso luego de Login o Continuar como invitado pero con limitadas funciones
+[x] Pueden agregarse hasta 6 imágenes en total
 [x] Burbuja de perfil con función para agregar publicación, en caso de estar logueado
 [x] Función para guardar imagen en Local Storage al agregarla
 [x] Tres burbujas adicionales precargadas
