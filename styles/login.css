@@ -34,3 +34,9 @@ a:hover {
 .success input {
     border: 0.2rem solid rgb(164, 241, 47);
 }
+
+@media (max-width: 767.98px) {
+    #form {
+        width: 100%!important;
+    }
+}
