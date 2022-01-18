@@ -20,41 +20,42 @@ CSS3 Framework:
 
 # Secciones
 ### Login
-[x] Campo usuario (email) y contraseña, ambos obligatorios.
-[x] Campo de email validado por medio de expresiones regulares:
+- [x] Campo usuario (email) y contraseña, ambos obligatorios.
+- [x] Campo de email validado por medio de expresiones regulares:
 - Hasta 8 caracteres
 - Letras de alfabeto y números
 - Al menos 1 carácter especial de los siguientes 4: # & * %
 
-[x] Botón Login que redirige a página principal
-[x] Botón Continuar como invitado que redirige a página principal, limitando funciones
-[x] Usuario loguado guardado en Local Storage
-[x] Errores en validación muestran un mensaje de error
+- [x] Botón Login que redirige a página principal
+- [x] Botón Continuar como invitado que redirige a página principal, limitando funciones
+- [x] Usuario loguado guardado en Local Storage
+- [x] Errores en validación muestran un mensaje de error
 
 ### Página principal
-[x] Acceso luego de Login o Continuar como invitado pero con limitadas funciones
-[x] Pueden agregarse hasta 6 imágenes en total
-[x] Burbuja de perfil con función para agregar publicación, en caso de estar logueado
-[x] Función para guardar imagen en Local Storage al agregarla
-[x] Tres burbujas adicionales precargadas
-[x] Posteos con imagen, fecha y likes
+
+- [x] Acceso luego de Login o Continuar como invitado pero con limitadas funciones
+- [x] Pueden agregarse hasta 6 imágenes en total
+- [x] Burbuja de perfil con función para agregar publicación, en caso de estar logueado
+- [x] Función para guardar imagen en Local Storage al agregarla
+- [x] Tres burbujas adicionales precargadas
+- [x] Posteos con imagen, fecha y likes
 
 ### Modal de historias
-[x] Modal que muestra carrusel de imágenes cargadas por usuario logueado
-[x] Las imágenes cambian automáticamente con un intervalo de 3 segundos
-[x] Botón para incrementar likes
-[x] Al finalizar carrusel:
+- [x] Modal que muestra carrusel de imágenes cargadas por usuario logueado
+- [x] Las imágenes cambian automáticamente con un intervalo de 3 segundos
+- [x] Botón para incrementar likes
+- [x] Al finalizar carrusel:
 - Redirige a página principal si usuario logueado
 - Redirige a página de registro si usuario invitado
 
-[x] Botón eliminar publicación para usuario logueado
-[x] Barra de progreso para historias
+- [x] Botón eliminar publicación para usuario logueado
+- [x] Barra de progreso para historias
 
 ### Página de registro
-[x] Logo Social Rolling
-[x] Invitación a registro
-[x] Botón con redirección a página 404
+- [x] Logo Social Rolling
+- [x] Invitación a registro
+- [x] Botón con redirección a página 404
 
 ### Página 404
-[x] Leyenda de página no encontrada
-[x] Botón de redirección a pantalla principal
+- [x] Leyenda de página no encontrada
+- [x] Botón de redirección a pantalla principal
