@@ -1,5 +1,5 @@
 const buildUserModal = () => {
-  const formAddImage = document.getElementById("formAddImage");
+  const formAddImage = document.getElementById('formAddImage');
   if (userLoggedIn === false) {
     formAddImage.innerHTML = `
       <div class="modal-body">
@@ -48,24 +48,24 @@ const buildStory = (item, elementId) => {
     `;
 };
 
-const buildItemsForModal = (items) => {
+const buildItemsForModal = items => {
   // Al abrir el modal, deben eliminarse los elementos anteriormente creados para evitar duplicados
-  const carouselInner = document.getElementById("carouselInner");
-  const carouselChild = document.getElementById("carouselChild");
+  const carouselInner = document.getElementById('carouselInner');
+  const carouselChild = document.getElementById('carouselChild');
 
   carouselInner.removeChild(carouselChild);
   const firstItem = items.shift();
   images.unshift(firstItem);
   const newImages = [...new Set(images)];
-  localStorage.setItem("images", JSON.stringify(newImages));
+  localStorage.setItem('images', JSON.stringify(newImages));
 
-  document.getElementById("carouselInner").innerHTML += `
+  document.getElementById('carouselInner').innerHTML += `
     <div id="carouselChild"></div>
   `;
 
-  newImages.forEach((item) => {
+  newImages.forEach(item => {
     const index = items.indexOf(item);
-    document.getElementById("carouselChild").innerHTML += `
+    document.getElementById('carouselChild').innerHTML += `
           <div id="carouselItem${index}" class="carousel-item" data-bs-interval="3000">
             <div id="cardStory" class="card w-100 h-100">
               <div id="progressBarContainer">
@@ -95,10 +95,10 @@ const buildItemsForModal = (items) => {
           `;
     if (userLoggedIn === false) {
       document.getElementById(`deleteButton${item.id}`).style.visibility =
-        "hidden";
+        'hidden';
     }
   });
-  document.getElementById("carouselItem-1").className += " active";
+  document.getElementById('carouselItem-1').className += ' active';
 };
 
 const buildPost = (item, elementId, index) => {
